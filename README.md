@@ -13,6 +13,11 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 =====================
 
+2.5
+===
+
+Module adaptations and bug fixes for Magento 2.x
+
 2.4
 ===
 

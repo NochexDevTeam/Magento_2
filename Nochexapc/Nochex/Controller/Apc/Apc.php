@@ -165,7 +165,7 @@ class Apc extends \Magento\Framework\App\Action\Action implements CsrfAwareActio
 			$postvars = http_build_query($data);
 				
 			// Set parameters for the email
-			$url = "https://www.nochex.com/apcnet/apc.aspx";
+			$url = "https://secure.nochex.com/apc/apc.aspx";
 			
 			//// Curl code to post variables back
 			$ch = curl_init(); // Initialise the curl tranfer

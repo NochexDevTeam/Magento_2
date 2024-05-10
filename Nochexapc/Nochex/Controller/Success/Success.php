@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Copyright © 2016 Magento. All rights reserved.
+ * Copyright Â© 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Nochexapc\Nochex\Controller\Success;
@@ -57,11 +57,11 @@ class Success extends \Magento\Framework\App\Action\Action implements CsrfAwareA
 	$storeManager = $this->_objectManager->get('\Magento\Store\Model\StoreManagerInterface');
 	$PaymentHelper = $this->_objectManager->get('\Magento\Payment\Helper\Data');
 	
-	$this->method = $PaymentHelper->getMethodInstance("nochex");
+	$nochex = $PaymentHelper->getMethodInstance("nochex");
 	
-	$merchantId = $this->method->getPayableTo();
+	$merchantId = $nochex->getPayableTo();
 	
-	if ($this->method->getTestTransaction() == 1){
+	if ($nochex->getTestTransaction() == 1){
 		$testTran = "100";
 	} else {
 		$testTran = "0";
@@ -105,7 +105,7 @@ class Success extends \Magento\Framework\App\Action\Action implements CsrfAwareA
 	
 	$xmlCollection .= "</items>";
 	
-	$xml = $this->method->getXmlCollect();
+	$xml = $nochex->getXmlCollect();
 		
 	if($xml == 1){
 	

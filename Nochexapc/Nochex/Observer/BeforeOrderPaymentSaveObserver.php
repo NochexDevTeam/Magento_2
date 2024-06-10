@@ -7,7 +7,7 @@
 /**
  * OfflinePayments Observer
  */
-namespace Nochex\Nochexapc\Observer;
+namespace Nochexapc\Nochex\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Nochexapc\Nochex\Model\Nochex;

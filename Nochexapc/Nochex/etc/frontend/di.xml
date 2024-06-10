@@ -14,5 +14,6 @@
             </argument>
         </arguments>		
     </type>
-	 <preference for="Magento\Checkout\Controller\Onepage\Success" type="Nochexapc\Nochex\Controller\Onepage\Success" />
+	<preference for="Magento\Sales\Model\Order\Email\Sender\OrderSender" type="Nochexapc\Nochex\Model\Order\Email\Sender\OrderSender"/>
+	<preference for="Magento\Checkout\Controller\Onepage\Success" type="Nochexapc\Nochex\Controller\Onepage\Success" />
 </config>

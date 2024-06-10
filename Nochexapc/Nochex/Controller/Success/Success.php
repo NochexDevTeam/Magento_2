@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Copyright Â© 2016 Magento. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Nochexapc\Nochex\Controller\Success;
@@ -17,9 +17,10 @@ use Magento\Framework\Exception\RemoteServiceUnavailableException;
 
 use Magento\Sales\Model\OrderFactory;
 
+#[AllowDynamicProperties]
 class Success extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
-
+    public $method;
 
     /**
      * @param \Magento\Framework\App\Action\Context $context
@@ -57,11 +58,11 @@ class Success extends \Magento\Framework\App\Action\Action implements CsrfAwareA
 	$storeManager = $this->_objectManager->get('\Magento\Store\Model\StoreManagerInterface');
 	$PaymentHelper = $this->_objectManager->get('\Magento\Payment\Helper\Data');
 	
-	$nochex = $PaymentHelper->getMethodInstance("nochex");
+	$this->method = $PaymentHelper->getMethodInstance("nochex");
 	
-	$merchantId = $nochex->getPayableTo();
+	$merchantId = $this->method->getPayableTo();
 	
-	if ($nochex->getTestTransaction() == 1){
+	if ($this->method->getTestTransaction() == 1){
 		$testTran = "100";
 	} else {
 		$testTran = "0";
@@ -105,7 +106,7 @@ class Success extends \Magento\Framework\App\Action\Action implements CsrfAwareA
 	
 	$xmlCollection .= "</items>";
 	
-	$xml = $nochex->getXmlCollect();
+	$xml = $this->method->getXmlCollect();
 		
 	if($xml == 1){
 	
